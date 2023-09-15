@@ -29,6 +29,8 @@ header {
 
 .flex-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .flex-container > div {
@@ -48,13 +50,36 @@ header {
   background-color: #13293D;
   border: none;
   border-radius: 15px;
-  box-shadow: 0 9px #999;
+  box-shadow: 0 5px #999;
 }
 
 .button:hover {background-color: #13293d8e}
 
 .button:active {
   background-color: #13293d8e;
-  box-shadow: 0 5px #666;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+}
+
+.buttonRemover {
+  display: inline-block;
+  padding: 8px 18px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #7f0000;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 5px #999;
+}
+
+.buttonRemover:hover {background-color: #13293d8e}
+
+.buttonRemover:active {
+  background-color: #13293d8e;
+  box-shadow: 0 2px #666;
   transform: translateY(4px);
 }

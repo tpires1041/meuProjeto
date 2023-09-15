@@ -88,7 +88,7 @@ return (
             <h2>
               Horario: {voo.horario}
             </h2>
-            <button className="button" onClick={() => removeVoos(index)}>Remover Voo</button>
+            <button className="buttonRemover" onClick={() => removeVoos(index)}>Remover Voo</button>
           </li>
         ))}
       </ul>
