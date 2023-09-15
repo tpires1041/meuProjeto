@@ -25,10 +25,15 @@ function removeVoos(index){
 
 return (
   <div className="container">
-    <h1>Voos partindo de Presidente Prudente</h1>
+    <header>
+      <h1>Voos partindo de Presidente Prudente</h1>
+    </header>
+    
+    <img className="SBDN" src="SBDN.jpg"></img>
+    
     <div className="form">
       <label>Empresa: </label>
-      <input
+      <input className="testee"
         type="text"
         value={empresa}
         onChange={(e) => { setEmpresa(e.target.value) }}
@@ -58,18 +63,19 @@ return (
       <ul>
         {voos.map((voo, index) => (
           <li key={index} className="item">
-            <p>
+            <h2>
               Empresa: {voo.empresa}
-            </p>
-            <p>
+            </h2>
+            <h2>
               Voo: {voo.codVoo}
-            </p>
-            <p>
+            </h2>
+            <h2>
               Destino: {voo.destino}
-            </p>
-            <p>
+            </h2>
+            <h2>
               Horario: {voo.horario}
-            </p>
+            </h2>
+            <button onClick={() => removeVoos(index)}>Remover Voo</button>
           </li>
         ))}
       </ul>
