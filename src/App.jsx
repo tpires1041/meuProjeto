@@ -26,37 +26,50 @@ function removeVoos(index){
 return (
   <div className="container">
     <header>
-      <h1>Voos partindo de Presidente Prudente</h1>
+      <h1>Voos partindo de Presidente Prudente/SP</h1>
     </header>
     
     <img className="SBDN" src="SBDN.jpg"></img>
     
     <div className="form">
+    <div class="flex-container">
+      <div>
       <label>Empresa: </label>
-      <input className="testee"
+      <input
         type="text"
         value={empresa}
         onChange={(e) => { setEmpresa(e.target.value) }}
       />
+      </div>
+      <div>
       <label>Voo: </label>
       <input
         type="text"
         value={codVoo}
         onChange={(e) => { setcodVoo(e.target.value) }}
       />
+      </div>
+      <div>
       <label>Destino: </label>
       <input
         type="text"
         value={destino}
         onChange={(e) => { setDestino(e.target.value) }}
       />
+      </div> 
+      <div>
       <label>Horario: </label>
       <input
-        type="text"
+        type="time"
         value={horario}
         onChange={(e) => { setHorario(e.target.value) }}
       />
-      <button onClick={addVoo}>Adicionar Voo</button>
+      </div>
+      </div>      
+      
+      
+      
+      <button className="button" onClick={addVoo}>Adicionar Voo</button>
     </div>
 
     <div className="lista">
@@ -75,7 +88,7 @@ return (
             <h2>
               Horario: {voo.horario}
             </h2>
-            <button onClick={() => removeVoos(index)}>Remover Voo</button>
+            <button className="button" onClick={() => removeVoos(index)}>Remover Voo</button>
           </li>
         ))}
       </ul>
