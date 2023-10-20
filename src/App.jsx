@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './App.css'
 
+
 function Voos() {
-  const [voos, setVoos] = useState([]);
+  const listaLocalStorage = JSON.parse(localStorage.getItem("Lista"));
+  const [voos, setVoos] = useState( listaLocalStorage || []);
   const [empresa, setEmpresa] = useState("");
   const [codVoo, setcodVoo] = useState("");
   const [horario, setHorario] = useState("");
   const [destino, setDestino] = useState("");
+
+  
 
   function addVoo() {
     const vooNovo = {empresa, codVoo, horario, destino};
@@ -18,10 +22,14 @@ function Voos() {
     setHorario("")
 }
 
+
 function removeVoos(index){
   const listaDeVoos = voos.filter((voo, i) => i !== index);
   setVoos(listaDeVoos);
 }
+
+useEffect(() => { localStorage.setItem("Lista", JSON.stringify(voos))}, [voos]);
+
 
 return (
   <div className="container">
