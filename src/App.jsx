@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import { Link } from "react-router-dom";
 
 function Voos() {
   const listaLocalStorage = JSON.parse(localStorage.getItem("Lista"));
@@ -86,16 +87,17 @@ function Voos() {
               }}
             />
           </div>
-        </div>
-
-        <button className="button" onClick={addVoo}>
-          Adicionar Voo
-        </button>
-      </div>
-
+        </div>-+
+-+
+        <button className="button" onClick={addVoo}>-+
+          Adicionar Voo-+
+        </button>-+
+      </div>-+
+-+
       <div className="lista">
         <ul>
           {voos.map((voo, index) => (
+          <Link to={`/detalhe/${voo.id}`}>
             <li key={index} className="item">
               <h2>Empresa: {voo.empresa}</h2>
               <h2>Voo: {voo.codVoo}</h2>
@@ -108,6 +110,7 @@ function Voos() {
                 Remover Voo
               </button>
             </li>
+          </Link>
           ))}
         </ul>
       </div>
