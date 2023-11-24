@@ -3,7 +3,7 @@ import "./App.css";
 import { Link } from "react-router-dom";
 
 function Voos() {
-  const listaLocalStorage = JSON.parse(localStorage.getItem("Lista"));
+  const listaLocalStorage = JSON.parse(localStorage.getItem("Lista") || "[]");
   const [id, setId] = useState(listaLocalStorage[listaLocalStorage.length - 1]?.id + 1 || 1);
   const [voos, setVoos] = useState(listaLocalStorage || []);
   const [empresa, setEmpresa] = useState("");
@@ -28,7 +28,9 @@ function Voos() {
     setHorario("");
   }
 
-  function removeVoos(index) {
+  function removeVoos(e, index) {
+    e.preventDefault();
+    e.stopPropagation();
     const listaDeVoos = voos.filter((voo, i) => i !== index);
     setVoos(listaDeVoos);
   }
@@ -46,7 +48,7 @@ function Voos() {
       <img className="SBDN" src="SBDN.jpg"></img>
 
       <div className="form">
-        <div class="flex-container">
+        <div className="flex-container">
           <div>
             <label>Empresa: </label>
             <input
@@ -87,13 +89,13 @@ function Voos() {
               }}
             />
           </div>
-        </div>-+
--+
-        <button className="button" onClick={addVoo}>-+
-          Adicionar Voo-+
-        </button>-+
-      </div>-+
--+
+        </div>
+
+        <button className="button" onClick={addVoo}>
+          Adicionar Voo
+        </button>
+      </div>
+
       <div className="lista">
         <ul>
           {voos.map((voo, index) => (
@@ -105,7 +107,7 @@ function Voos() {
               <h2>Horario: {voo.horario}</h2>
               <button
                 className="buttonRemover"
-                onClick={() => removeVoos(index)}
+                onClick={(e) => removeVoos(e, index)}
               >
                 Remover Voo
               </button>

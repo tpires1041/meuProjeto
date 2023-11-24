@@ -1,5 +1,7 @@
+import Voos from "../App";
+
 export default function Card({voo}){
     return (
-        <h1>{voo.voo}</h1>
+        <h1>{Voos.voo}</h1>
     );
 }
